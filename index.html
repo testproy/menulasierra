@@ -8,89 +8,106 @@
     <!-- Google Fonts for Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<style>
-body {
-font-family: 'Roboto', sans-serif;
-margin: 0;
-padding: 30px;
-background-color: #FFF8E1; /* Light cream background */
-color: #424242; /* Soft dark gray for text */
-line-height: 1.6; /* Better line spacing */
-}
-h1 {
-text-align: center;
-color: #1B5E20; /* Deeper green for the title */
-font-size: 28px; /* Slightly larger for emphasis */
-margin-bottom: 10px;
-}
-h2 {
-text-align: center;
-color: #D32F2F; /* Tomato red for headers */
-font-size: 24px;
-text-transform: uppercase;
-margin-top: 30px;
-}
-h3 {
-color: #D32F2F; /* Tomato red for section headers */
-font-size: 20px;
-text-transform: uppercase;
-margin-top: 40px;
-margin-bottom: 20px;
-}
-.menu-section {
-margin-bottom: 40px;
-}
-.pizza-item {
-margin: 20px 0;
-font-size: 16px;
-}
-.pizza-name {
-font-weight: bold;
-color: #4E342E; /* Earthy brown for pizza names */
-font-size: 18px;
-}
-.price {
-font-style: normal;
-color: #424242; /* Soft dark gray for prices */
-}
-.contact, .contact-header {
-text-align: center;
-margin-top: 40px;
-padding: 20px;
-background-color: #FFECB3; /* Light amber for contact sections */
-border-radius: 10px;
-}
-.contact-header {
-margin-top: 0;
-margin-bottom: 20px;
-}
-a {
-color: #F57C00; /* Vibrant orange for links */
-text-decoration: none;
-font-weight: bold;
-}
-a:hover {
-text-decoration: underline;
-color: #EF6C00; /* Slightly darker orange on hover */
-}
-</style> 
-<!-- Meta Pixel Code -->
-  <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '3963114680673719');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=3963114680673719&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #FFF8E1; /* Light cream background */
+            color: #424242; /* Soft dark gray for text */
+            line-height: 1.6; /* Better line spacing */
+        }
+        h1 {
+            text-align: center;
+            color: #1B5E20; /* Deeper green for the title */
+            font-size: 28px; /* Slightly larger for emphasis */
+            margin-bottom: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #D32F2F; /* Tomato red for headers */
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #D32F2F; /* Tomato red for section headers */
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        .pizza-item {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        .pizza-name {
+            font-weight: bold;
+            color: #4E342E; /* Earthy brown for pizza names */
+            font-size: 18px;
+        }
+        .price {
+            font-style: normal;
+            color: #424242; /* Soft dark gray for prices */
+        }
+        .contact, .contact-header {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #FFECB3; /* Light amber for contact sections */
+            border-radius: 10px;
+        }
+        .contact-header {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #F57C00; /* Vibrant orange for links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #EF6C00; /* Slightly darker orange on hover */
+        }
+        .call-now-button {
+            display: inline-block;
+            background-color: #D32F2F; /* Tomato red to match headers */
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .call-now-button:hover {
+            background-color: #B71C1C; /* Darker red on hover */
+            text-decoration: none;
+        }
+    </style> 
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '3963114680673719');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=3963114680673719&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
     <h1>Pizzeria La Sierra Delicias</h1>
@@ -183,7 +200,8 @@ src="https://www.facebook.com/tr?id=3963114680673719&ev=PageView&noscript=1"
         <p><strong>Rápido servicio a domicilio desde 1 pizza</strong> en todo Delicias Chih!</p>
         <p>Llama al <strong><a href="tel:+526394723004">(639)472-3004</a></strong> y <strong><a href="tel:+526391191955">wa(639)119-1955</a></strong></p>
         <p>Horario: <strong>11am a 9:30pm</strong></p>
-        <p><em>Dirección: Avenida Fernando Baeza y Avenida Río Chuviscar, locales de alsuper, ciudad Delicias Chihuahua. </em></p>
+        <p><em>Dirección: Avenida Fernando Baeza y Avenida Río Chuviscar, locales de alsuper, ciudad Delicias Chihuahua.</em></p>
+        <a href="tel:+526394723004" class="call-now-button" onclick="fbq('track', 'Contact');">Llámanos y pide tu pizza a domicilio</a>
     </div>
 </body>
 </html>
