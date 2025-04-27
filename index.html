@@ -112,9 +112,8 @@
 <body>
     <h1>Pizzeria La Sierra Delicias</h1>
     <div class="contact-header">
-        <p>Servicio a domicilio desde 1 pizza en todo Delicias Chih, llama al <strong><a href="tel:+526394723004" onclick="fbq('track', 'Contact');">(639)472-3004</a></strong> /
-
-        <strong><a href="https://wa.me/526391191955" onclick="fbq('track', 'WhatsAppContact');">wa(639)119-1955</a></strong></p>
+        <p>Servicio a domicilio desde 1 pizza en todo Delicias Chih, llama al <strong><a href="tel:+526394723004" onclick="trackContact(event);">(639)472-3004</a></strong> /
+        <strong><a href="https://wa.me/526391191955" onclick="trackWhatsAppContact(event);">wa(639)119-1955</a></strong></p>
     </div>
     <h2>Menú</h2>
 
@@ -200,11 +199,60 @@
 
     <div class="contact">
         <p><strong>Rápido servicio a domicilio desde 1 pizza</strong> en todo Delicias Chih!</p>
-        <p>Llama al <strong><a href="tel:+526394723004" onclick="fbq('track', 'Contact');">(639)472-3004</a></strong> /
-
-        <strong><a href="https://wa.me/526391191955" onclick="fbq('track', 'WhatsAppContact');">wa(639)119-1955</a></strong></p>
+        <p>Llama al <strong><a href="tel:+526394723004" onclick="trackContact(event);">(639)472-3004</a></strong> /
+        <strong><a href="https://wa.me/526391191955" onclick="trackWhatsAppContact(event);">wa(639)119-1955</a></strong></p>
         <p>Horario: <strong>11am a 9:30pm</strong></p>
         <p><em>Dirección: Avenida Fernando Baeza y Avenida Río Chuviscar, locales de alsuper, ciudad Delicias Chihuahua.</em></p>
     </div>
+
+    <!-- Event Tracking Functions and Scroll Tracking for Meta Pixel -->
+    <script>
+        // Function to track PhoneContact event (phone link)
+        function trackContact(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            fbq('track', 'PhoneContact'); // Cambiado de 'Contact' a 'PhoneContact'
+            window.location.href = event.currentTarget.href;
+        }
+
+        // Function to track WhatsAppContact event
+        function trackWhatsAppContact(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            fbq('track', 'WhatsAppContact');
+            window.location.href = event.currentTarget.href;
+        }
+
+        // Scroll event tracking - Remember to verify these custom events in Meta Events Manager
+        let scrollTracked = {
+            25: false,
+            50: false,
+            75: false,
+            100: false
+        };
+
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / windowHeight) * 100;
+
+            if (scrollPercentage >= 25 && !scrollTracked[25]) {
+                fbq('trackCustom', 'Scroll_25Percent');
+                scrollTracked[25] = true;
+            }
+            if (scrollPercentage >= 50 && !scrollTracked[50]) {
+                fbq('trackCustom', 'Scroll_50Percent');
+                scrollTracked[50] = true;
+            }
+            if (scrollPercentage >= 75 && !scrollTracked[75]) {
+                fbq('trackCustom', 'Scroll_75Percent');
+                scrollTracked[75] = true;
+            }
+            if (scrollPercentage >= 100 && !scrollTracked[100]) {
+                fbq('trackCustom', 'Scroll_100Percent');
+                scrollTracked[100] = true;
+            }
+        });
+    </script>
 </body>
 </html>
