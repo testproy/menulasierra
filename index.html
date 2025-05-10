@@ -274,22 +274,22 @@
     </div>
 
     <!-- Event Tracking Functions for Meta Pixel -->
- //   <script>
+    <script>
         // Function to track PhoneContact event (phone link)
-//        function trackContact(event) {
-//            event.preventDefault();
-//            event.stopPropagation();
-//            fbq('track', 'PhoneContact');
-//            window.location.href = event.currentTarget.href;
-//        }
+        function trackContact(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            fbq('track', 'PhoneContact');
+            window.location.href = event.currentTarget.href;
+        }
 
-        // Function to track WhatsAppContact event
-//        function trackWhatsAppContact(event) {
- //           event.preventDefault();
- //           event.stopPropagation();
- //           fbq('track', 'WhatsAppContact');
- //           window.location.href = event.currentTarget.href;
-//        }
-//    </script>
+   //      Function to track WhatsAppContact event
+        function trackWhatsAppContact(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            fbq('track', 'WhatsAppContact');
+            window.location.href = event.currentTarget.href;
+        }
+    </script>
 </body>
 </html>
