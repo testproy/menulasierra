@@ -8,6 +8,77 @@
     <!-- Google Fonts for Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 
+    <!-- Cookie Consent -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script>
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": { "background": "#000" },
+                "button": { "background": "#D32F2F" } /* Tomato red to match your site */
+            },
+            "content": {
+                "message": "Este sitio usa cookies para mejorar tu experiencia y mostrar anuncios personalizados.",
+                "dismiss": "Aceptar",
+                "link": "Aviso de Privacidad",
+                "href": "/privacy-policy.html"
+            },
+            onInitialise: function (status) {
+                if (status == "dismiss") {
+                    !function(f,b,e,v,n,t,s)
+                    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                    n.queue=[];t=b.createElement(e);t.async=!0;
+                    t.src=v;s=b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t,s)}(window, document,'script',
+                    'https://connect.facebook.net/en_US/fbevents.js');
+                    fbq('init', '3963114680673719');
+                    fbq('track', 'PageView');
+                    // Dispara ViewContent solo en páginas relevantes (ajusta la condición)
+                    if (window.location.pathname === '/index.html' || window.location.pathname.includes('producto')) {
+                        fbq('track', 'ViewContent', {
+                            content_type: 'product',
+                            content_ids: ['menu_pizzas'],
+                            content_name: 'Menú Pizzas',
+                            currency: 'MXN',
+                            value: 150
+                        });
+                    }
+                }
+            },
+            onStatusChange: function (status) {
+                if (status == "dismiss") {
+                    if (!window.fbq) {
+                        !function(f,b,e,v,n,t,s)
+                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                        n.queue=[];t=b.createElement(e);t.async=!0;
+                        t.src=v;s=b.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t,s)}(window, document,'script',
+                        'https://connect.facebook.net/en_US/fbevents.js');
+                        fbq('init', '3963114680673719');
+                        fbq('track', 'PageView');
+                        if (window.location.pathname === '/index.html' || window.location.pathname.includes('producto')) {
+                            fbq('track', 'ViewContent', {
+                                content_type: 'product',
+                                content_ids: ['menu_pizzas'],
+                                content_name: 'Menú Pizzas',
+                                currency: 'MXN',
+                                value: 150
+                            });
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=3963114680673719&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -148,25 +219,7 @@
                 padding: 15px;
             }
         }
-    </style> 
-    <!-- Meta Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '3963114680673719');
-        fbq('track', 'PageView');
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=3963114680673719&ev=PageView&noscript=1"/>
-    </noscript>
-    <!-- End Meta Pixel Code here -->
+    </style>
 </head>
 <body>
 
