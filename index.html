@@ -60,13 +60,7 @@
                 fbq('track', 'PageView');
                 // Dispara ViewContent en la página principal
                 if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname.includes('menulasierra')) {
-                    fbq('track', 'ViewContent', {
-                        content_type: 'product',
-                        content_ids: ['menu_pizzas'],
-                        content_name: 'Menú Pizzas',
-                        currency: 'MXN',
-                        value: 150
-                    });
+                    fbq('track', 'ViewContent');
                 }
             }
         }
