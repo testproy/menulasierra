@@ -46,24 +46,36 @@
         });
 
         // Función para cargar el Meta Pixel y los eventos
-        function loadMetaPixel() {
-            if (!window.fbq) {
-                !function(f,b,e,v,n,t,s)
-                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '3963114680673719');
-                fbq('track', 'PageView');
-                // Dispara ViewContent en la página principal
-                if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname.includes('menulasierra')) {
-                    fbq('track', 'ViewContent');
-                }
-            }
+
+function loadMetaPixel() {
+    if (!window.fbq) {
+        console.log('Initializing Meta Pixel');
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '3963114680673719');
+        fbq('track', 'PageView');
+        console.log('Pixel initialized, Pathname:', window.location.pathname);
+        // Updated condition for ViewContent
+        if (window.location.pathname === '/' || 
+            window.location.pathname === '/index.html' || 
+            window.location.pathname.toLowerCase().includes('menulasierra') || 
+            window.location.pathname === '/menulasierra/' || 
+            window.location.pathname === '/menulasierra/index.html') {
+            console.log('Tracking ViewContent');
+            fbq('track', 'ViewContent');
+        } else {
+            console.log('ViewContent not tracked, pathname does not match');
         }
+    } else {
+        console.log('Pixel already initialized');
+    }
+}   
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
