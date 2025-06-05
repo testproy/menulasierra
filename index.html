@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzeria La Sierra Delicias - Menú</title>
-<!-- test cause not comm -->
-    <!-- Google Fonts for Roboto -->
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 
-    <!-- Cookie Consent CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-    <!-- Cookie Consent JS -->
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
     <script>
-        // Espera a que el DOM esté cargado para inicializar el banner
+        // Initialize the cookie consent banner, but don't block the Meta Pixel
         document.addEventListener('DOMContentLoaded', function () {
             try {
                 window.cookieconsent.initialise({
@@ -23,33 +20,19 @@
                     },
                     "content": {
                         "message": "Este sitio usa cookies para mejorar tu experiencia y mostrar anuncios personalizados.",
-                        "dismiss": "Aceptar",
+                        "dismiss": "Entendido", // Changed from "Aceptar" to "Entendido" for a softer tone
                         "link": "Aviso de Privacidad",
                         "href": "/menulasierra/privacy-policy.html"
                     },
-                    onInitialise: function (status) {
-                        if (status == "dismiss") {
-                            loadMetaPixel();
-                        }
-                    },
-                    onStatusChange: function (status) {
-                        if (status == "dismiss") {
-                            loadMetaPixel();
-                        }
-                    }
+                    // No need to load Meta Pixel here anymore
                 });
             } catch (error) {
                 console.error('Error initializing cookieconsent:', error);
-                // Carga el Pixel como fallback si cookieconsent falla
-                loadMetaPixel();
             }
         });
+    </script>
 
-        // Función para cargar el Meta Pixel y los eventos
-
-function loadMetaPixel() {
-    if (!window.fbq) {
-        console.log('Initializing Meta Pixel');
+    <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -62,27 +45,21 @@ function loadMetaPixel() {
         fbq('track', 'PageView');
         console.log('Pixel initialized, Pathname:', window.location.pathname);
         // Updated condition for ViewContent
-        if (window.location.pathname === '/' || 
-            window.location.pathname === '/index.html' || 
-            window.location.pathname.toLowerCase().includes('menulasierra') || 
-            window.location.pathname === '/menulasierra/' || 
+        if (window.location.pathname === '/' ||
+            window.location.pathname === '/index.html' ||
+            window.location.pathname.toLowerCase().includes('menulasierra') ||
+            window.location.pathname === '/menulasierra/' ||
             window.location.pathname === '/menulasierra/index.html') {
-            console.log('Tracking ViewContent');
-            fbq('track', 'ViewContent');
+                console.log('Tracking ViewContent');
+                fbq('track', 'ViewContent');
         } else {
             console.log('ViewContent not tracked, pathname does not match');
         }
-    } else {
-        console.log('Pixel already initialized');
-    }
-}   
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=1857941938327699&ev=PageView&noscript=1"/>
     </noscript>
-    <!-- End Meta Pixel Code -->
-
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -224,29 +201,30 @@ function loadMetaPixel() {
             }
         }
     </style>
+
 </head>
 <body>
     <h1>Pizzeria La Sierra Delicias</h1>
     <div class="hero-banner">
-        <p>¡Pizzas de exquisito queso menonita! 🍕</p>
+        <p>¡Pizzas de exquisito queso menonita! </p>
     </div>
     <div class="contact-header">
-        <p>🚀 Servicio a domicilio desde 1 pizza en todo Delicias Chih. Llama al <strong><a href="tel:+526394723004" onclick="trackContact(event)">(639)472-3004</a></strong> o <strong><a href="https://wa.me/526391191955" onclick="trackWhatsAppContact(event)">WhatsApp (639)119-1955</a></strong></p>
+        <p> Servicio a domicilio desde 1 pizza en todo Delicias Chih. Llama al <strong><a href="tel:+526394723004" onclick="trackContact(event)">(639)472-3004</a></strong> o <strong><a href="https://wa.me/526391191955" onclick="trackWhatsAppContact(event)">WhatsApp (639)119-1955</a></strong></p>
     </div>
-    <h2>🍕 Menú</h2>
+    <h2> Menú</h2>
 
     <div class="menu-section offer-section">
-        <h3>🍕 ¡OFERTA ESPECIAL HOY! 🔥</h3>
+        <h3> ¡OFERTA ESPECIAL HOY! </h3>
         <div class="pizza-item">
-            <span class="pizza-name">Pepperoni Manía</span> - 😋 ¡PIZZAS DE PEPPERONI 😋 bien calientitas y recién hechas!<br>
-            <span class="price offer-price"><strong>Tamaño Grande: $129</strong> 🔥 ¡Envío rápido a domicilio!</span><br>
+            <span class="pizza-name">Pepperoni Manía</span> - ¡PIZZAS DE PEPPERONI bien calientitas y recién hechas!<br>
+            <span class="price offer-price"><strong>Tamaño Grande: $129</strong> ¡Envío rápido a domicilio!</span><br>
         </div>
     </div>
 
     <div class="menu-section">
-        <h3>🍕 Tradicionales - ¡Las que nunca fallan!</h3>
+        <h3> Tradicionales - ¡Las que nunca fallan!</h3>
         <div class="pizza-item">
-            <span class="pizza-name">Especial</span> <span class="recommend-badge">⭐ ¡Recomendamos!</span> - Jugoso jamón, pepperoni, picadillo y pimiento morrón<br>
+            <span class="pizza-name">Especial</span> <span class="recommend-badge"> ¡Recomendamos!</span> - Jugoso jamón, pepperoni, picadillo y pimiento morrón<br>
             <span class="price">Chica: $129 | Mediana: $195 | Grande: $245</span>
         </div>
         <div class="pizza-item">
@@ -272,9 +250,9 @@ function loadMetaPixel() {
     </div>
 
     <div class="menu-section">
-        <h3>🍕 Especiales - ¡Las Favoritas!</h3>
+        <h3> Especiales - ¡Las Favoritas!</h3>
         <div class="pizza-item">
-            <span class="pizza-name">Carne Asada</span> <span class="recommend-badge">⭐ ¡Recomendamos!</span> - Pepperoni, tocino y carne asada ¡irresistible!<br>
+            <span class="pizza-name">Carne Asada</span> <span class="recommend-badge"> ¡Recomendamos!</span> - Pepperoni, tocino y carne asada ¡irresistible!<br>
             <span class="price">Chica: $145 | Mediana: $217 | Grande: $265</span>
         </div>
         <div class="pizza-item">
@@ -308,7 +286,7 @@ function loadMetaPixel() {
     </div>
 
     <div class="menu-section">
-        <h3>🍕 Pizzas Dulces - ¡Postre con sabor único!</h3>
+        <h3> Pizzas Dulces - ¡Postre con sabor único!</h3>
         <div class="pizza-item">
             <span class="pizza-name">Canela Roll</span> - Avena, azúcar mascabado y mantequilla con dulce de la casa<br>
             <span class="price">Chica: $129 | Mediana: $168 | Grande: $229</span>
@@ -327,7 +305,6 @@ function loadMetaPixel() {
         <p><em>Dirección: Avenida Fernando Baeza y Avenida Río Chuviscar, locales de alsuper, ciudad Delicias Chihuahua.</em></p>
     </div>
 
-    <!-- Event Tracking Functions for Meta Pixel -->
     <script>
         // Function to track PhoneContact event (phone link)
         function trackContact(event) {
