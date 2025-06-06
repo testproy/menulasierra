@@ -8,23 +8,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <style>
+        /* Estilos personalizados para hacer el banner más pequeño y discreto */
+        .cc-window.cc-banner {
+            padding: 10px 15px; /* Reduce el padding */
+            font-size: 13px; /* Reduce el tamaño de la fuente */
+        }
+        .cc-window .cc-message {
+            margin-bottom: 5px; /* Reduce el espacio debajo del mensaje */
+        }
+        .cc-window .cc-btn {
+            padding: 5px 10px; /* Reduce el padding del botón */
+            font-size: 12px; /* Reduce el tamaño de la fuente del botón */
+        }
+        /* Ajustar la posición a la esquina inferior derecha */
+        .cc-window {
+            right: 20px !important;
+            left: auto !important;
+            bottom: 20px !important;
+            max-width: 300px; /* Limita el ancho para que sea más pequeño */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra sutil */
+        }
+        /* Asegurar que el banner no ocupe todo el ancho en móviles */
+        @media (max-width: 600px) {
+            .cc-window {
+                right: 10px !important;
+                left: 10px !important;
+                bottom: 10px !important;
+                max-width: calc(100% - 20px); /* Ajusta al ancho de la pantalla */
+            }
+        }
+    </style>
+
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
     <script>
-        // Initialize the cookie consent banner, but don't block the Meta Pixel
         document.addEventListener('DOMContentLoaded', function () {
             try {
                 window.cookieconsent.initialise({
                     "palette": {
                         "popup": { "background": "#000" },
-                        "button": { "background": "#D32F2F" } /* Tomato red to match your site */
+                        "button": { "background": "#D32F2F" } /* Rojo tomate para que combine con tu sitio */
                     },
                     "content": {
                         "message": "Este sitio usa cookies para mejorar tu experiencia y mostrar anuncios personalizados.",
-                        "dismiss": "Entendido", // Changed from "Aceptar" to "Entendido" for a softer tone
+                        "dismiss": "Entendido", // Cambiado de "Aceptar" a "Entendido" para un tono más suave
                         "link": "Aviso de Privacidad",
                         "href": "/menulasierra/privacy-policy.html"
                     },
-                    // No need to load Meta Pixel here anymore
+                    "position": "bottom-right", // Muestra el banner en la esquina inferior derecha
+                    "type": "info" // Cambiado a "info" para no requerir un consentimiento explícito de "opt-in" antes de continuar, sino más bien una notificación.
                 });
             } catch (error) {
                 console.error('Error initializing cookieconsent:', error);
