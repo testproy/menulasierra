@@ -358,6 +358,23 @@
             }
             window.location.href = event.currentTarget.href;
         }
+
+        // --- Scroll Tracking Logic ---
+        let hasScrolled = false; // Flag to ensure the event is fired only once
+
+        window.addEventListener('scroll', function() {
+            // Check if the user has scrolled down at least 25% of the page height
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+            if (scrollPercentage > 25 && !hasScrolled) {
+                if (window.fbq) {
+                    fbq('track', 'Scroll'); // Track a custom event named 'Scroll'
+                    console.log('Facebook Pixel Event: Scroll (25% depth)');
+                }
+                hasScrolled = true; // Set the flag to true so it doesn't fire again
+            }
+        });
+        // --- End Scroll Tracking Logic ---
     </script>
 </body>
 </html>
