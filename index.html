@@ -360,21 +360,46 @@
         }
 
         // --- Scroll Tracking Logic ---
-        let hasScrolled = false; // Flag to ensure the event is fired only once
+        const scrollThresholds = {
+            '25_percent': false,
+            '50_percent': false,
+            '100_percent': false
+        };
 
-        window.addEventListener('scroll', function() {
-            // Check if the user has scrolled down at least 25% of the page height
-            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        function trackScrollDepth() {
+            const documentHeight = document.documentElement.scrollHeight;
+            const viewportHeight = window.innerHeight;
+            const scrollY = window.scrollY;
 
-            if (scrollPercentage > 25 && !hasScrolled) {
-                if (window.fbq) {
-                    fbq('track', 'Scroll'); // Track a custom event named 'Scroll'
-                    console.log('Facebook Pixel Event: Scroll (25% depth)');
+            // Calculate current scroll percentage
+            // We subtract viewportHeight because 100% scroll means the very bottom of the page is visible, not that the top of the viewport is at the very bottom of the document.
+            const scrollPercentage = (scrollY / (documentHeight - viewportHeight)) * 100;
+
+            if (window.fbq) {
+                if (scrollPercentage >= 25 && !scrollThresholds['25_percent']) {
+                    fbq('trackCustom', 'Scroll_25_Percent');
+                    console.log('Fired Scroll_25_Percent event');
+                    scrollThresholds['25_percent'] = true;
                 }
-                hasScrolled = true; // Set the flag to true so it doesn't fire again
+                if (scrollPercentage >= 50 && !scrollThresholds['50_percent']) {
+                    fbq('trackCustom', 'Scroll_50_Percent');
+                    console.log('Fired Scroll_50_Percent event');
+                    scrollThresholds['50_percent'] = true;
+                }
+                if (scrollPercentage >= 95 && !scrollThresholds['100_percent']) { // Using 95% as 100% can be hard to hit precisely
+                    fbq('trackCustom', 'Scroll_100_Percent');
+                    console.log('Fired Scroll_100_Percent event');
+                    scrollThresholds['100_percent'] = true;
+                }
             }
-        });
-        // --- End Scroll Tracking Logic ---
+        }
+
+        // Add the scroll event listener
+        window.addEventListener('scroll', trackScrollDepth);
+
+        // Optional: Run on page load in case user is already past a threshold
+        document.addEventListener('DOMContentLoaded', trackScrollDepth);
+
     </script>
 </body>
 </html>
