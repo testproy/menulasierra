@@ -184,7 +184,7 @@
         <div class="pizza-item">
             <span class="pizza-name">Pepperoni Manía</span> - ¡PIZZAS DE PEPPERONI bien calientitas y recién hechas!<br>
             <span class="price offer-price"><strong>Tamaño Grande: $139</strong> ¡Envío rápido a domicilio, desde 1 pizza!</span><br>
-            <p>Llama YA al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o <strong><a href="tel:+526391354200" onclick="trackContact(event)">(639) 135-4200</a></strong></p>
+            <p>Llama YA al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>
         </div>        
     </div>
     <h1>Pizzeria La Sierra Delicias</h1>
@@ -192,7 +192,7 @@
         <p>¡Pizzas de exquisito queso menonita! </p>
     </div>
     <div class="contact-header">
-   <p>Servicio a domicilio desde 1 pizza en todo Delicias, Chih. Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o <strong><a href="tel:+526391354200" onclick="trackContact(event)">(639) 135-4200</a></strong></p>  </div>
+   <p>Servicio a domicilio desde 1 pizza en todo Delicias, Chih. Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>  </div>
     <h2> Menú</h2>
 
     <div class="menu-section">
@@ -274,7 +274,7 @@
     <div class="contact">
         <p><strong>Rápido servicio a domicilio desde 1 pizza</strong> en todo Delicias Chih!</p>
         <p>Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o 
-            <strong><a href="tel:+526391354200" onclick="trackContact(event)">(639) 135-4200</a></strong></p>        
+            escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>        
         <p>Horario: <strong>11am a 9:30pm</strong></p>
         <p><em>Dirección: Avenida Río Chuviscar y Av Fernando Baeza, Delicias Chihuahua.</em></p>
         <p><a href="/menulasierra/privacy-policy.html">Aviso de Privacidad</a></p>
@@ -291,15 +291,20 @@
             window.location.href = event.currentTarget.href;
         }
 
-        // Function to track WhatsAppContact event (phone)
- //       function trackWhatsAppContact(event) {
-  //          event.preventDefault();
-  //          event.stopPropagation();
-  //          if (window.fbq) {
-  //              fbq('track', 'WhatsAppContact');
-  //          }
- //           window.location.href = event.currentTarget.href;
- //       }
+        // Function to track WhatsAppContact event
+        function trackWhatsAppContact(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (window.fbq) {
+                // Track as Contact standard event (recognized by Meta Ads)
+                fbq('track', 'Contact', {
+                    content_name: 'WhatsApp Contact',
+                    content_category: 'Customer Service'
+                });
+                console.log('WhatsApp Contact event tracked');
+            }
+            window.open(event.currentTarget.href, '_blank');
+        }
 
         // --- Scroll Tracking Logic ---
         const scrollThresholds = {
