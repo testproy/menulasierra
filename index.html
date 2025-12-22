@@ -296,12 +296,9 @@
             event.preventDefault();
             event.stopPropagation();
             if (window.fbq) {
-                // Track as Contact standard event (recognized by Meta Ads)
-                fbq('track', 'Contact', {
-                    content_name: 'WhatsApp Contact',
-                    content_category: 'Customer Service'
-                });
-                console.log('WhatsApp Contact event tracked');
+                // Track Contact event exactly as Meta requires
+                fbq('track', 'Contact');
+                console.log('Contact event tracked');
             }
             window.open(event.currentTarget.href, '_blank');
         }
