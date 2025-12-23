@@ -36,17 +36,147 @@
         src="https://www.facebook.com/tr?id=1130278589318518&ev=PageView&noscript=1"/>
     </noscript>
     <style>
-        /* Tu CSS se mantiene igual - no hay cambios aquí */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 30px;
-            background-color: #FFF8E1;
-            color: #333;
+            background-color: #FFF8E1; /* Light cream background */
+            color: #333; /* Darker gray for better contrast */
             line-height: 1.6;
         }
-        /* ... resto del CSS sin cambios ... */
+        h1 {
+            text-align: center;
+            color: #1B5E20; /* Deeper green */
+            font-size: 32px; /* Larger for impact */
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #D32F2F; /* Tomato red */
+            font-size: 26px;
+            text-transform: uppercase;
+            margin-top: 30px;
+            font-weight: 900;
+        }
+        h3 {
+            color: #D32F2F; /* Tomato red */
+            font-size: 22px;
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .menu-section {
+            margin-bottom: 50px;
+        }
+        .offer-section {
+            background-color: #FFE4E7; /* Soft pastel pink */
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #D32F2F; /* Tomato red border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin-bottom: 60px;
+        }
+        .pizza-item {
+            margin: 20px 0;
+            font-size: 16px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #E0E0E0; /* Faint divider */
+        }
+        .pizza-item:last-child {
+            border-bottom: none; /* No divider for last item */
+        }
+        .pizza-name {
+            font-weight: 700;
+            color: #4E342E; /* Earthy brown */
+            font-size: 20px; /* Larger for hierarchy */
+            display: inline-block;
+        }
+        .recommend-badge {
+            color: #D32F2F;
+            font-size: 14px;
+            margin-left: 10px;
+            font-weight: 700;
+        }
+        .price {
+            font-style: normal;
+            color: #333; /* Darker for readability */
+            letter-spacing: 0.5px; /* Clearer spacing */
+        }
+        .offer-price {
+            font-size: 18px; /* Larger for emphasis */
+            color: #D32F2F; /* Tomato red for deal */
+        }
+        .contact, .contact-header {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #FFECB3; /* Light amber */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .contact-header {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #F57C00; /* Vibrant orange */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #EF6C00; /* Darker orange on hover */
+        }
+        .call-now-button {
+            display: inline-block;
+            background-color: #D32F2F; /* Tomato red */
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .call-now-button:hover {
+            background-color: #B71C1C; /* Darker red */
+        }
+        .hero-banner {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .hero-banner img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            .pizza-name {
+                font-size: 18px;
+            }
+            .offer-section {
+                padding: 15px;
+            }
+        }
     </style>
+
 </head>
 <body>
     <div class="menu-section offer-section">
@@ -54,7 +184,7 @@
         <div class="pizza-item">
             <span class="pizza-name">Pepperoni Manía</span> - ¡PIZZAS DE PEPPERONI bien calientitas y recién hechas!<br>
             <span class="price offer-price"><strong>Tamaño Grande: $139</strong> ¡Envío rápido a domicilio, desde 1 pizza!</span><br>
-            <p>Llama YA al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>
+            <p>Llama YA al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>
         </div>        
     </div>
     <h1>Pizzeria La Sierra Delicias</h1>
@@ -62,43 +192,118 @@
         <p>¡Pizzas de exquisito queso menonita! </p>
     </div>
     <div class="contact-header">
-   <p>Servicio a domicilio desde 1 pizza en todo Delicias, Chih. Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>  </div>
+   <p>Servicio a domicilio desde 1 pizza en todo Delicias, Chih. Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>  </div>
     <h2> Menú</h2>
 
-    <!-- Resto del menú se mantiene igual... -->
+    <div class="menu-section">
+        <h3> Tradicionales - ¡Las que nunca fallan!</h3>
+        <div class="pizza-item">
+            <span class="pizza-name">Especial</span> <span class="recommend-badge"> ¡Recomendamos!</span> - Jugoso jamón, pepperoni, picadillo y pimiento morrón<br>
+            <span class="price">Chica: $129 | Mediana: $195 | Grande: $245</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Hawaiana</span> - ¡Dulce jamón y piña tropical!<br>
+            <span class="price">Chica: $125 | Mediana: $168 | Grande: $229</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Mexicana</span> - Picadillo, chorizo, cebolla y chile curtido ¡con sabor a México!<br>
+            <span class="price">Chica: $129 | Mediana: $195 | Grande: $245</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Camarón</span> - Camarón fresco y pimiento morrón<br>
+            <span class="price">Chica: $138 | Mediana: $207 | Grande: $258</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Manitoba</span> - Pepperoni y salchicha italiana ¡puro sabor!<br>
+            <span class="price">Chica: $125 | Mediana: $175 | Grande: $237</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">La Sierra</span> - Salami, pepperoni, champiñones, jamón, piña y pimiento ¡el festín de Delicias!<br>
+            <span class="price">Chica: $129 | Mediana: $195 | Grande: $245</span>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h3> Especiales - ¡Las Favoritas!</h3>
+        <div class="pizza-item">
+            <span class="pizza-name">Carne Asada</span> <span class="recommend-badge"> ¡Recomendamos!</span> - Pepperoni, tocino y carne asada ¡irresistible!<br>
+            <span class="price">Chica: $145 | Mediana: $217 | Grande: $265</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Pepperoni Especial</span> - Pepperoni, jamón y pimiento morrón<br>
+            <span class="price">Chica: $129 | Mediana: $195 | Grande: $245</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Pepperoni Mixta</span> - Pepperoni, jamón y champiñones<br>
+            <span class="price">Chica: $125 | Mediana: $175 | Grande: $237</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Pollo BBQ</span> - Pollo, tocino, piña y salsa BBQ ¡un toque ahumado!<br>
+            <span class="price">Chica: $138 | Mediana: $207 | Grande: $258</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Nacho</span> - Queso, chorizo, picadillo, cebolla y chile curtido<br>
+            <span class="price">Chica: $129 | Mediana: $195 | Grande: $245</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Vianna</span> - Pimientos, champiñones y salchicha italiana<br>
+            <span class="price">Chica: $125 | Mediana: $175 | Grande: $237</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Deluxe</span> - Jamón, champiñones, aceitunas, pimientos y cebolla<br>
+            <span class="price">Chica: $125 | Mediana: $175 | Grande: $237</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Cuatro Quesos</span> - Queso crema, mozzarella, cheddar y menonita ¡cremoso!<br>
+            <span class="price">Chica: $138 | Mediana: $207 | Grande: $258</span>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h3> Pizzas Dulces - ¡Postre con sabor único!</h3>
+        <div class="pizza-item">
+            <span class="pizza-name">Canela Roll</span> - Avena, azúcar mascabado y mantequilla con dulce de la casa<br>
+            <span class="price">Chica: $129 | Mediana: $168 | Grande: $229</span>
+        </div>
+        <div class="pizza-item">
+            <span class="pizza-name">Manzanera</span> - Manzana, piña, canela y queso menonita ¡dulce tentación!<br>
+            <span class="price">Chica: $129 | Mediana: $168 | Grande: $229</span>
+        </div>
+    </div>
 
     <div class="contact">
         <p><strong>Rápido servicio a domicilio desde 1 pizza</strong> en todo Delicias Chih!</p>
         <p>Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o 
-            escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>        
+            escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>        
         <p>Horario: <strong>11am a 9:30pm</strong></p>
         <p><em>Dirección: Avenida Río Chuviscar y Av Fernando Baeza, Delicias Chihuahua.</em></p>
         <p><a href="/menulasierra/privacy-policy.html">Aviso de Privacidad</a></p>
     </div>
 
     <script>
-        // Función unificada para rastrear evento estándar 'Contact' (teléfono o WhatsApp)
+        // Function to track phone call - uses standard Contact event
         function trackContact(event) {
             event.preventDefault();
             event.stopPropagation();
-            
             if (window.fbq) {
-                fbq('track', 'Contact');  // ← Evento estándar oficial de Meta
-                console.log('Evento estándar "Contact" disparado');
-            } else {
-                console.log('fbq no disponible aún');
+                fbq('track', 'Contact');
+                console.log('Contact event tracked - Phone call');
             }
-
-            // Redirigir según el tipo de enlace
-            const href = event.currentTarget.href;
-            if (href.startsWith('tel:')) {
-                window.location.href = href;  // Llamada telefónica
-            } else {
-                window.open(href, '_blank');  // Abrir WhatsApp en nueva pestaña
-            }
+            window.location.href = event.currentTarget.href;
         }
 
-        // --- Scroll Tracking Logic (se mantiene igual) ---
+        // Function to track WhatsApp - uses standard Contact event
+        function trackWhatsAppContact(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (window.fbq) {
+                fbq('track', 'Contact');
+                console.log('Contact event tracked - WhatsApp');
+            }
+            window.open(event.currentTarget.href, '_blank');
+        }
+
+        // --- Scroll Tracking Logic ---
         const scrollThresholds = {
             '25_percent': false,
             '50_percent': false,
@@ -109,6 +314,9 @@
             const documentHeight = document.documentElement.scrollHeight;
             const viewportHeight = window.innerHeight;
             const scrollY = window.scrollY;
+
+            // Calculate current scroll percentage
+            // We subtract viewportHeight because 100% scroll means the very bottom of the page is visible, not that the top of the viewport is at the very bottom of the document.
             const scrollPercentage = (scrollY / (documentHeight - viewportHeight)) * 100;
 
             if (window.fbq) {
@@ -122,7 +330,7 @@
                     console.log('Fired Scroll_50_Percent event');
                     scrollThresholds['50_percent'] = true;
                 }
-                if (scrollPercentage >= 95 && !scrollThresholds['100_percent']) {
+                if (scrollPercentage >= 95 && !scrollThresholds['100_percent']) { // Using 95% as 100% can be hard to hit precisely
                     fbq('trackCustom', 'Scroll_100_Percent');
                     console.log('Fired Scroll_100_Percent event');
                     scrollThresholds['100_percent'] = true;
@@ -130,8 +338,12 @@
             }
         }
 
+        // Add the scroll event listener
         window.addEventListener('scroll', trackScrollDepth);
+
+        // Optional: Run on page load in case user is already past a threshold
         document.addEventListener('DOMContentLoaded', trackScrollDepth);
+
     </script>
 </body>
 </html>
