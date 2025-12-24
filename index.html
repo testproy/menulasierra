@@ -16,17 +16,22 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
+        
         fbq('init', '1130278589318518');
         fbq('track', 'PageView');
         console.log('Pixel initialized, Pathname:', window.location.pathname);
-        // Updated condition for ViewContent
+        
+        // ViewContent con value y currency (corregido para Meta Pixel)
         if (window.location.pathname === '/' ||
             window.location.pathname === '/index.html' ||
             window.location.pathname.toLowerCase().includes('menulasierra') ||
             window.location.pathname === '/menulasierra/' ||
             window.location.pathname === '/menulasierra/index.html') {
-                console.log('Tracking ViewContent');
-                fbq('track', 'ViewContent');
+                console.log('Tracking ViewContent con value y currency');
+                fbq('track', 'ViewContent', {
+                    value: 200.00,
+                    currency: 'MXN'
+                });
         } else {
             console.log('ViewContent not tracked, pathname does not match');
         }
@@ -35,32 +40,33 @@
         <img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=1130278589318518&ev=PageView&noscript=1"/>
     </noscript>
+
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 30px;
-            background-color: #FFF8E1; /* Light cream background */
-            color: #333; /* Darker gray for better contrast */
+            background-color: #FFF8E1;
+            color: #333;
             line-height: 1.6;
         }
         h1 {
             text-align: center;
-            color: #1B5E20; /* Deeper green */
-            font-size: 32px; /* Larger for impact */
+            color: #1B5E20;
+            font-size: 32px;
             margin-bottom: 10px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         h2 {
             text-align: center;
-            color: #D32F2F; /* Tomato red */
+            color: #D32F2F;
             font-size: 26px;
             text-transform: uppercase;
             margin-top: 30px;
             font-weight: 900;
         }
         h3 {
-            color: #D32F2F; /* Tomato red */
+            color: #D32F2F;
             font-size: 22px;
             text-transform: uppercase;
             margin-top: 40px;
@@ -72,26 +78,26 @@
             margin-bottom: 50px;
         }
         .offer-section {
-            background-color: #FFE4E7; /* Soft pastel pink */
+            background-color: #FFE4E7;
             padding: 20px;
             border-radius: 8px;
-            border: 2px solid #D32F2F; /* Tomato red border */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border: 2px solid #D32F2F;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 60px;
         }
         .pizza-item {
             margin: 20px 0;
             font-size: 16px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #E0E0E0; /* Faint divider */
+            border-bottom: 1px solid #E0E0E0;
         }
         .pizza-item:last-child {
-            border-bottom: none; /* No divider for last item */
+            border-bottom: none;
         }
         .pizza-name {
             font-weight: 700;
-            color: #4E342E; /* Earthy brown */
-            font-size: 20px; /* Larger for hierarchy */
+            color: #4E342E;
+            font-size: 20px;
             display: inline-block;
         }
         .recommend-badge {
@@ -102,18 +108,18 @@
         }
         .price {
             font-style: normal;
-            color: #333; /* Darker for readability */
-            letter-spacing: 0.5px; /* Clearer spacing */
+            color: #333;
+            letter-spacing: 0.5px;
         }
         .offer-price {
-            font-size: 18px; /* Larger for emphasis */
-            color: #D32F2F; /* Tomato red for deal */
+            font-size: 18px;
+            color: #D32F2F;
         }
         .contact, .contact-header {
             text-align: center;
             margin-top: 40px;
             padding: 20px;
-            background-color: #FFECB3; /* Light amber */
+            background-color: #FFECB3;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -122,17 +128,17 @@
             margin-bottom: 20px;
         }
         a {
-            color: #F57C00; /* Vibrant orange */
+            color: #F57C00;
             text-decoration: none;
             font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
-            color: #EF6C00; /* Darker orange on hover */
+            color: #EF6C00;
         }
         .call-now-button {
             display: inline-block;
-            background-color: #D32F2F; /* Tomato red */
+            background-color: #D32F2F;
             color: white;
             padding: 12px 24px;
             text-decoration: none;
@@ -143,7 +149,7 @@
             transition: background-color 0.3s ease;
         }
         .call-now-button:hover {
-            background-color: #B71C1C; /* Darker red */
+            background-color: #B71C1C;
         }
         .hero-banner {
             text-align: center;
@@ -155,50 +161,77 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        /* Nuevos estilos para botón WhatsApp verde (inspirado en tu otro HTML) */
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: #fff;
+            padding: 0.6rem 1.3rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-left: 8px;
+            font-size: 1rem;
+            vertical-align: middle;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .whatsapp-btn:visited, .whatsapp-btn:active {
+            color: #fff;
+        }
+        .icon {
+            margin-right: 8px;
+            font-size: 1.4rem;
+            vertical-align: middle;
+        }
+
         @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            h2 {
-                font-size: 22px;
-            }
-            h3 {
-                font-size: 20px;
-            }
-            .pizza-name {
-                font-size: 18px;
-            }
-            .offer-section {
-                padding: 15px;
-            }
+            body { padding: 15px; }
+            h1 { font-size: 28px; }
+            h2 { font-size: 22px; }
+            h3 { font-size: 20px; }
+            .pizza-name { font-size: 18px; }
+            .offer-section { padding: 15px; }
+            .whatsapp-btn { padding: 0.5rem 1rem; font-size: 0.95rem; }
         }
     </style>
-
 </head>
 <body>
     <div class="menu-section offer-section">
-        <h3> ¡OFERTA ESPECIAL HOY! </h3>
+        <h3>¡OFERTA ESPECIAL HOY!</h3>
         <div class="pizza-item">
             <span class="pizza-name">Pepperoni Manía</span> - ¡PIZZAS DE PEPPERONI bien calientitas y recién hechas!<br>
             <span class="price offer-price"><strong>Tamaño Grande: $139</strong> ¡Envío rápido a domicilio, desde 1 pizza!</span><br>
-            <p>Llama YA al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>
+            <p>
+                Llama YA al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o 
+                <span class="icon">📱</span>WhatsApp:
+                <a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" class="whatsapp-btn" target="_blank">(639) 135-4200</a>
+            </p>
         </div>        
     </div>
+
     <h1>Pizzeria La Sierra Delicias</h1>
     <div class="hero-banner">
-        <p>¡Pizzas de exquisito queso menonita! </p>
+        <p>¡Pizzas de exquisito queso menonita!</p>
     </div>
     <div class="contact-header">
-   <p>Servicio a domicilio desde 1 pizza en todo Delicias, Chih. Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>  </div>
-    <h2> Menú</h2>
+        <p>Servicio a domicilio desde 1 pizza en todo Delicias, Chih. Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o 
+            <span class="icon">📱</span>WhatsApp:
+            <a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" class="whatsapp-btn" target="_blank">(639) 135-4200</a>
+        </p>
+    </div>
+    <h2>Menú</h2>
 
     <div class="menu-section">
-        <h3> Tradicionales - ¡Las que nunca fallan!</h3>
+        <h3>Tradicionales - ¡Las que nunca fallan!</h3>
         <div class="pizza-item">
-            <span class="pizza-name">Especial</span> <span class="recommend-badge"> ¡Recomendamos!</span> - Jugoso jamón, pepperoni, picadillo y pimiento morrón<br>
+            <span class="pizza-name">Especial</span> <span class="recommend-badge">¡Recomendamos!</span> - Jugoso jamón, pepperoni, picadillo y pimiento morrón<br>
             <span class="price">Chica: $129 | Mediana: $195 | Grande: $245</span>
         </div>
         <div class="pizza-item">
@@ -224,9 +257,9 @@
     </div>
 
     <div class="menu-section">
-        <h3> Especiales - ¡Las Favoritas!</h3>
+        <h3>Especiales - ¡Las Favoritas!</h3>
         <div class="pizza-item">
-            <span class="pizza-name">Carne Asada</span> <span class="recommend-badge"> ¡Recomendamos!</span> - Pepperoni, tocino y carne asada ¡irresistible!<br>
+            <span class="pizza-name">Carne Asada</span> <span class="recommend-badge">¡Recomendamos!</span> - Pepperoni, tocino y carne asada ¡irresistible!<br>
             <span class="price">Chica: $145 | Mediana: $217 | Grande: $265</span>
         </div>
         <div class="pizza-item">
@@ -260,13 +293,13 @@
     </div>
 
     <div class="menu-section">
-        <h3> Pizzas Dulces - ¡Postre con sabor único!</h3>
+        <h3>Pizzas Dulces - ¡Postre con sabor único!</h3>
         <div class="pizza-item">
             <span class="pizza-name">Canela Roll</span> - Avena, azúcar mascabado y mantequilla con dulce de la casa<br>
             <span class="price">Chica: $129 | Mediana: $168 | Grande: $229</span>
         </div>
         <div class="pizza-item">
-            <span class="pizza-name">Manzanera</span> - Manzana, piña, canela y queso menonita ¡dulce tentación!<br>
+            <span class="pizza-name">Manzanera</span> - Manzana, piña, canela y queso menonita ¡dulce tentación!</span><br>
             <span class="price">Chica: $129 | Mediana: $168 | Grande: $229</span>
         </div>
     </div>
@@ -274,14 +307,15 @@
     <div class="contact">
         <p><strong>Rápido servicio a domicilio desde 1 pizza</strong> en todo Delicias Chih!</p>
         <p>Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o 
-            escríbenos por <strong><a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" target="_blank">WhatsApp (639) 135-4200</a></strong></p>        
+            <span class="icon">📱</span>WhatsApp:
+            <a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" class="whatsapp-btn" target="_blank">(639) 135-4200</a>
+        </p>        
         <p>Horario: <strong>11am a 9:30pm</strong></p>
         <p><em>Dirección: Avenida Río Chuviscar y Av Fernando Baeza, Delicias Chihuahua.</em></p>
         <p><a href="/menulasierra/privacy-policy.html">Aviso de Privacidad</a></p>
     </div>
 
     <script>
-        // Function to track phone call - uses standard Contact event
         function trackContact(event) {
             event.preventDefault();
             event.stopPropagation();
@@ -292,7 +326,6 @@
             window.location.href = event.currentTarget.href;
         }
 
-        // Function to track WhatsApp - uses standard Contact event
         function trackWhatsAppContact(event) {
             event.preventDefault();
             event.stopPropagation();
@@ -303,7 +336,6 @@
             window.open(event.currentTarget.href, '_blank');
         }
 
-        // --- Scroll Tracking Logic ---
         const scrollThresholds = {
             '25_percent': false,
             '50_percent': false,
@@ -314,9 +346,6 @@
             const documentHeight = document.documentElement.scrollHeight;
             const viewportHeight = window.innerHeight;
             const scrollY = window.scrollY;
-
-            // Calculate current scroll percentage
-            // We subtract viewportHeight because 100% scroll means the very bottom of the page is visible, not that the top of the viewport is at the very bottom of the document.
             const scrollPercentage = (scrollY / (documentHeight - viewportHeight)) * 100;
 
             if (window.fbq) {
@@ -330,7 +359,7 @@
                     console.log('Fired Scroll_50_Percent event');
                     scrollThresholds['50_percent'] = true;
                 }
-                if (scrollPercentage >= 95 && !scrollThresholds['100_percent']) { // Using 95% as 100% can be hard to hit precisely
+                if (scrollPercentage >= 95 && !scrollThresholds['100_percent']) {
                     fbq('trackCustom', 'Scroll_100_Percent');
                     console.log('Fired Scroll_100_Percent event');
                     scrollThresholds['100_percent'] = true;
@@ -338,12 +367,8 @@
             }
         }
 
-        // Add the scroll event listener
         window.addEventListener('scroll', trackScrollDepth);
-
-        // Optional: Run on page load in case user is already past a threshold
         document.addEventListener('DOMContentLoaded', trackScrollDepth);
-
     </script>
 </body>
 </html>
