@@ -162,29 +162,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Nuevos estilos para botón WhatsApp verde (inspirado en tu otro HTML) */
-        .whatsapp-btn {
-            display: inline-block;
-            background: #25D366;
-            color: #fff;
-            padding: 0.6rem 1.3rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease, transform 0.2s ease;
-            margin-left: 8px;
-            font-size: 1rem;
-            vertical-align: middle;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-        .whatsapp-btn:visited, .whatsapp-btn:active {
-            color: #fff;
-        }
         .icon {
             margin-right: 8px;
             font-size: 1.4rem;
@@ -197,8 +174,7 @@
             h2 { font-size: 22px; }
             h3 { font-size: 20px; }
             .pizza-name { font-size: 18px; }
-            .offer-section { padding: 15px; }
-            .whatsapp-btn { padding: 0.5rem 1rem; font-size: 0.95rem; }
+            .offer-section { padding: 15px; }            
         }
     </style>
 </head>
@@ -209,9 +185,7 @@
             <span class="pizza-name">Pepperoni Manía</span> - ¡PIZZAS DE PEPPERONI bien calientitas y recién hechas!<br>
             <span class="price offer-price"><strong>Tamaño Grande: $139</strong> ¡Envío rápido a domicilio, desde 1 pizza!</span><br>
             <p>
-                Llama YA al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o 
-                <span class="icon">📱</span>WhatsApp:
-                <a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" class="whatsapp-btn" target="_blank">(639) 135-4200</a>
+                Llama YA al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> 
             </p>
         </div>        
     </div>
@@ -221,9 +195,7 @@
         <p>¡Pizzas de exquisito queso menonita!</p>
     </div>
     <div class="contact-header">
-        <p>Servicio a domicilio desde 1 pizza en todo Delicias, Chih. Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o 
-            <span class="icon">📱</span>WhatsApp:
-            <a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" class="whatsapp-btn" target="_blank">(639) 135-4200</a>
+        <p>Servicio a domicilio desde 1 pizza en todo Delicias, Chih. Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong>
         </p>
     </div>
     <h2>Menú</h2>
@@ -306,9 +278,7 @@
 
     <div class="contact">
         <p><strong>Rápido servicio a domicilio desde 1 pizza</strong> en todo Delicias Chih!</p>
-        <p>Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong> o 
-            <span class="icon">📱</span>WhatsApp:
-            <a href="https://wa.me/526391354200" onclick="trackWhatsAppContact(event)" class="whatsapp-btn" target="_blank">(639) 135-4200</a>
+        <p>Llama al <strong><a href="tel:+526394700209" onclick="trackContact(event)">(639) 470-0209</a></strong>
         </p>        
         <p>Horario: <strong>11am a 9:30pm</strong></p>
         <p><em>Dirección: Avenida Río Chuviscar y Av Fernando Baeza, Delicias Chihuahua.</em></p>
@@ -326,16 +296,7 @@
             window.location.href = event.currentTarget.href;
         }
 
-        function trackWhatsAppContact(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            if (window.fbq) {
-                fbq('track', 'Contact');
-                console.log('Contact event tracked - WhatsApp');
-            }
-            window.open(event.currentTarget.href, '_blank');
-        }
-
+       
         const scrollThresholds = {
             '25_percent': false,
             '50_percent': false,
